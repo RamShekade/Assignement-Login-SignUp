@@ -184,7 +184,7 @@ app.post('/regenerate-otp', (req, res) => {
 
 app.get('/reset-password', (req, res) => {
   const successMessage = req.query.success ? req.query.success : null; // If success message exists in the query, use it
-  if (!req.session.email) return res.redirect('/forgot-password');
+  if (!req.session.email) return res.redirect('/login');
   res.render('reset-password', { error: null, success: successMessage });
 });
 
@@ -200,7 +200,7 @@ app.post('/reset-password', (req, res) => {
     delete req.session.email;  // Clear the session email
 
     // Show a success message and redirect to login page
-    return res.redirect('/reset-password?success=Password reset successful. You can now log in with your new password.');
+    return res.redirect('/login?success=Password reset successfully.');
   } else {
     return res.render('reset-password', { error: 'Error updating password. Please try again.', success: null });
   }
