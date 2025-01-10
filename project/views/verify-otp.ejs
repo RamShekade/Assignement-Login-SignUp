@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Verify OTP</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Verify OTP</h1>
+    <form action="/verify-otp" method="POST">
+        <% if (error) { %>
+          <div class="error-message"><%= error %></div>
+        <% } %>
+        <label>OTP</label>
+        <input type="text" name="otp" placeholder="Enter the 4 - digit OTP" required maxlength="4">
+        <button type="submit">Verify OTP</button>
+    </form>
+    <div class="rese
